@@ -15,7 +15,7 @@ class NewsTableSeeder extends Seeder {
 				'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
 				'category' => $faker->word,
 				'source' => $faker->word,
-				'pic_link' => $faker->imageUrl(460,270, 'cats'),
+				'pic_link' => $faker->imageUrl(460,270, 'nightlife'),
 				'shortdesc' => $faker->text(500),
 				'longdesc' => $faker->paragraph($nbSentences = 50)
 			 );
