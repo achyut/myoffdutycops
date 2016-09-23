@@ -11,8 +11,9 @@
 
 			First name: {{ $fname }} <br>
 			Last name: {{ $lname }} <br>
-			Email: {{ $email }} <br>
-			Phone: {{ $phone }} <br>
+			Email: <a href="mailto:{{ $email }}">{{ $email }} </a><br>
+			Phone: <a href="tel:{{ $phone }}">{{ $phone }} </a> <br>
+			
 			Badge Number: {{ $badgenumber }} <br>
 			Agency: {{ $policeagency }} <br>
 			State: {{ $state }} <br>

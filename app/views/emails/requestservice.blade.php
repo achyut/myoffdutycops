@@ -11,8 +11,8 @@
 			
 			Fullname: {{ $fullname }} <br>
 			Company: {{ $company }} <br>
-			Email: {{ $email }} <br>
-			Phone: {{ $phone }} <br>
+			Email: <a href="mailto:{{ $email }}">{{ $email }} </a><br>
+			Phone: <a href="tel:{{ $phone }}">{{ $phone }} </a> <br>
 			Location: {{ $location }} <br>
 			Date and Time: {{ $dateandtime }}
 

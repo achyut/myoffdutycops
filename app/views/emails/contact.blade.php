@@ -11,8 +11,8 @@
 			
 			Firstname: {{ $fname }} <br>
 			Lastname: {{ $lname }} <br>
-			Email: {{ $email }} <br>
-			Phone: {{ $phone }} <br>
+			Email: <a href="mailto:{{ $email }}">{{ $email }} </a><br>
+			Phone: <a href="tel:{{ $phone }}">{{ $phone }} </a> <br>
 			
 			<br>
 			Message:
