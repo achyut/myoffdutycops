@@ -20,6 +20,9 @@ $(function()
 						{
 							required: true
 						},
+						phone:{
+							required:true	
+						},
 						badgenumber:
 						{
 							required: true

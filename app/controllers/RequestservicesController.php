@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Collection;
+
 class RequestservicesController extends BaseController {
 
 	/**
@@ -45,6 +47,7 @@ class RequestservicesController extends BaseController {
 	public function store()
 	{
 		$input = Input::all();
+		
 		$validation = Validator::make($input, Requestservice::$rules);
 
 		if ($validation->passes())
@@ -53,9 +56,11 @@ class RequestservicesController extends BaseController {
 			$data = $this->requestservice->create($input);
 			$input["created_at"] = $data->created_at;
 
+			/*
 			Mail::send('emails.requestservice', $input, function($message) {
 			    $message->to('achyut@mailinator.com', 'Request service')->subject('Requested service by '.Input::get('fullname'));
 			});
+			*/
 
 			return Redirect::route('requestservice')->with('successmessage',Lang::get('messages.requestservicesuccess'));
 		}
@@ -135,4 +140,36 @@ class RequestservicesController extends BaseController {
 		return Redirect::route('requestservices.index');
 	}
 
+	public function getNearbyPoliceOfficers($id)
+	{
+		$policesignup = $this->requestservice->getNearByPoliceOfficers($id);
+		$collection =  new Collection($policesignup);
+		$policesignups = $collection->sortBy('distancetojob');
+
+		//return $policesignups;
+		return View::make('backend.requestservices.nearby', compact('policesignups','id'));
+	}
+
+	public function notify($jobid,$officerid)
+	{
+		$job = $this->requestservice->findOrFail($jobid);
+		$officer = Policesignup::findOrFail($officerid);
+		
+	}
+
+	public function notifyAll()
+	{
+		$input = Input::all();
+		dd($input);
+	}
+
+
+	public function sendNotification($job,$officer)
+	{
+		
+		Mail::send('emails.jobfound', $job, function($message) {
+		    $message->to($officer->email, 'New Job found matching your profile')->subject('New Job found matching your profile in your locality');
+		});
+			
+	}
 }

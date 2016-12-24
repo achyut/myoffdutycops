@@ -1,0 +1,26 @@
+- policesignup
+phone-required in police signup
+
+badge num - police agency
+
+Your Zipcode
+
+- city -state
+- make state dropdown
+
+Travel distance upto from your zipcode:
+
+ 
+ -lock account
+ -lock timeout till
+
+
+
+ contact:
+ - phone required
+ - message required
+
+
+ files link
+
+ show map and location address

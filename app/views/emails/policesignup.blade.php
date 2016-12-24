@@ -16,9 +16,10 @@
 			
 			Badge Number: {{ $badgenumber }} <br>
 			Agency: {{ $policeagency }} <br>
-			State: {{ $state }} <br>
+			Zipcode: {{ $zipcode }} <br>
 			Authorization: {{ $authorization }} <br>
-			
+
+			Travel Distance: {{ $distance }} <br>
 		</div>
 	</body>
 </html>

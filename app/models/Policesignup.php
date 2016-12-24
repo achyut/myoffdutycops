@@ -10,7 +10,8 @@ class Policesignup extends Eloquent {
 		//'phone' => 'required',
 		'badgenumber' => 'required',
 		'policeagency' => 'required',
-		'state' => 'required',
+		//'state' => 'required',
+		'zipcode' => 'required',
 		'authorization' => 'required'
 	);
 }

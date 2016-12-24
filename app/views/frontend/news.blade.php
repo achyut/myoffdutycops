@@ -49,7 +49,7 @@
                                         </ul>
                                         <h2 style="min-height: 74px;max-height: 74px"><a href="#">{{{ $news[$x]->title }}}</a></h2>
                                         <p style="min-height: 160px;max-height: 160px;overflow: hidden">
-                                        {{{ $news[$x]->shortdesc }}}
+                                        {{ $news[$x]->shortdesc }}
                                         </p>
                                         <p>{{ link_to_route('shownews','Read More..', $news[$x]->id,array('class'=>'btn btn-theme-dark')) }}</p>
                                     </div><!--blog post-->

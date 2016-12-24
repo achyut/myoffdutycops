@@ -64,6 +64,11 @@ Route::group(array('before' => 'auth'), function()
     Route::resource('policesignups', 'PolicesignupsController');
 
     Route::resource('requestservices', 'RequestservicesController');
+    Route::get('requestservices/nearbyofficers/{id}', array('as' => 'requestservices.findofficers', 'uses' => 'RequestservicesController@getNearbyPoliceOfficers'));
+    Route::get('requestservices/notify/{jobid}/{officerid}', array('as' => 'requestservices.notify', 'uses' => 'RequestservicesController@notify'));
+    Route::post('requestservices/notifyall/{jobid}', array('as' => 'requestservices.notifyall', 'uses' => 'RequestservicesController@notifyAll'));
+
+
 
     Route::resource('contacts', 'ContactsController');
     Route::resource('news', 'NewsController');

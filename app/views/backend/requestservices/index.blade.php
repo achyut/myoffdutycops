@@ -35,10 +35,9 @@
 				<th>Company</th>
 				<th>Email</th>
 				<th>Phone</th>
-				<th>Location</th>
 				<th>Status</th>
+				<th>Location</th>
 				<th>Dateandtime</th>
-				<th>Message</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
@@ -53,15 +52,14 @@
 					<td>{{{ $requestservice->status }}}</td>
 					<td>{{{ $requestservice->location }}}</td>
 					<td>{{{ $requestservice->dateandtime }}}</td>
-					<td>{{{ $requestservice->request_message }}}</td>
                     <td>
                         <!-- {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('requestservices.destroy', $requestservice->id))) }}
                             {{ Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) }}
                         {{ Form::close() }}
                          -->
-                        {{ link_to_route('requestservices.show', 'View', array($requestservice->id), array('class' => 'btn btn-xs btn-default')) }}
-
-                        {{ link_to_route('requestservices.edit', 'Edit', array($requestservice->id), array('class' => 'btn btn-xs btn-info')) }}
+                        {{ link_to_route('requestservices.findofficers', 'Find Officers', array($requestservice->id), array('class' => 'btn btn-xs btn-success')) }}
+ 
+                        {{ link_to_route('requestservices.show', 'View', array($requestservice->id), array('class' => 'btn btn-xs btn-info')) }} 
                     </td>
 				</tr>
 			@endforeach

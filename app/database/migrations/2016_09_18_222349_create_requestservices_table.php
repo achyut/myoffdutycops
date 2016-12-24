@@ -22,6 +22,19 @@ class CreateRequestservicesTable extends Migration {
 			$table->string('status');
 			$table->string('dateandtime');
 			$table->string('request_message');
+			
+			$table->string('street_number');
+			$table->string('route');
+			$table->string('locality');
+			$table->string('administrative_area_level_1');
+			$table->string('administrative_area_level_2');
+			$table->string('country');
+			$table->string('postal_code');
+			$table->string('postal_code_suffix');
+
+			$table->string('latitude');
+			$table->string('longitude');
+
 			$table->timestamps();
 		});
 	}

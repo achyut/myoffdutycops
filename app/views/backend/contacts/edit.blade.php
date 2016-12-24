@@ -1,6 +1,6 @@
 @extends('backend.index')
 
-@section('title', 'Blank page')
+@section('title', 'Contact page')
 
 @section('page-css')
 <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -13,7 +13,7 @@
 <!-- begin #content -->
 <div id="content" class="content">
 	<!-- begin page-header -->
-	<h1 class="page-header">Police Signups</h1>
+	<h1 class="page-header">Contact</h1>
 	<!-- end page-header -->
 	
 	<div class="row">

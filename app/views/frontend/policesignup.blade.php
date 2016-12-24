@@ -99,23 +99,34 @@
 							</label>
 						</section>
 							
-						<section>
+						<!-- <section>
 							<label class="input">
 								<i class="icon-append fa fa-tag"></i>
 	                                <input type="text" name="state" value="{{ Input::old('state') }}" id="state" placeholder="State">
 	                                 <b class="tooltip tooltip-top-right">Enter your state</b>
 							</label>
-						</section>
+						</section> -->
 						
 
-						<!-- <section>
-							<label class="input">
-								<i class="icon-append fa fa-tag"></i>
-	                                <input type="text" name="zipcode" id="zipcode" placeholder="Police station zip code">
-	                                 <b class="tooltip tooltip-top-right">Enter zip code of your police station</b>
-							</label>
-						</section>
-						 -->
+						<div class="row">
+							<section class="col col-6">
+								
+								<label class="input">
+									<i class="icon-append fa fa-tag"></i>
+                                        <input type="text" name="zipcode" value="{{ Input::old('zipcode') }}" id="zipcode" placeholder="Your Zip Code ( you can give only zipcode)">
+                                        <b class="tooltip tooltip-top-right">Enter your zip code (Only zipcode is enough)</b>
+								</label>
+							</section>
+							<section class="col col-6">
+								
+								<label class="input">
+									<i class="icon-append fa fa-road"></i>
+                                        <input type="number" name="distance" value="{{ Input::old('distance') }}" id="distance" placeholder="Distance you can travel. In miles. (eg. 100)" autocomplete="false">
+
+                                        <b class="tooltip tooltip-top-right">Distance you can travel in miles.</b>
+								</label>
+							</section>
+						</div>
 
 						<!--
 												<section>
@@ -137,6 +148,17 @@
 						<button type="submit" class="btn btn-theme-bg btn-lg ">Submit</button>
 					</footer>
 					
+					<input type="hidden" name="street_number" id="street_number" />
+			      <input type="hidden" name="route" id="route" />
+			      <input type="hidden" name="locality" id="locality" />
+			      <input type="hidden" name="administrative_area_level_1" id="administrative_area_level_1" />
+			      <input type="hidden" name="administrative_area_level_2" id="administrative_area_level_2" />
+			      <input type="hidden" name="postal_code" id="postal_code" />
+			      <input type="hidden" name="country" id="country" />
+			      <input type="hidden" name="postal_code_suffix" id="postal_code_suffix" />
+			      <input type="hidden" name="latitude" id="latitude" />
+			      <input type="hidden" name="longitude" id="longitude" /> 
+
 				</form>	
 	        						
 	                </div>
@@ -144,4 +166,65 @@
 	            </div>
 	        </div><!--contact advanced container end-->
 	        <div class="divide60"></div>
+	        @section('page-js')
+       <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD1F13nPmWEVl3hWQtfTgPv272QEr6kR2w&libraries=places"></script>
+       <script src="{{ asset('js/jquery.geocomplete.min.js') }}"></script> 
+        <script>
+        $(document).ready(function(){
+		
+				$("#zipcode").geocomplete()
+		          .bind("geocode:result", function(event, result){
+		          	//console.log(result);
+		          	fillInAddress(result);
+		            //console.log("Result: " + result.adr_address);
+		          })
+		          .bind("geocode:error", function(event, status){
+		            console.log("ERROR: " + status);
+		          })
+		          .bind("geocode:multiple", function(event, results){
+		            console.log("Multiple: " + results.length + " results found");
+		          });
+
+				var componentForm = {
+		          street_number: 'short_name',
+		          route: 'long_name',
+		          locality: 'long_name',
+		          administrative_area_level_1: 'short_name',
+				  administrative_area_level_2: 'short_name',
+		          country: 'long_name',
+		          postal_code: 'short_name',
+		          postal_code_suffix: 'short_name',
+
+		        };
+
+		        function fillInAddress(place) {
+		          // Get the place details from the autocomplete object.
+		         // var place = autocomplete.getPlace();
+		         
+		          for (var component in componentForm) {
+		            document.getElementById(component).value = '';
+		            //document.getElementById(component).disabled = false;
+		          }
+				  // Get each component of the address from the place details
+		          // and fill the corresponding field on the form.
+		          for (var i = 0; i < place.address_components.length; i++) {
+		            var addressType = place.address_components[i].types[0];
+		            if (componentForm[addressType]) {
+		              var val = place.address_components[i][componentForm[addressType]];
+		              document.getElementById(addressType).value = val;
+		            }
+		          }
+
+		          var latitude = place.geometry.location.lat();
+			      var longitude = place.geometry.location.lng();
+			      $("input#latitude").val(latitude);
+			      $("input#longitude").val(longitude);
+		        }
+
+				
+				
+		});
+        </script>
+		@endsection
+
 	        @include('frontend.includes.footer')

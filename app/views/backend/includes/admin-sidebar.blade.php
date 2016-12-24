@@ -34,7 +34,7 @@
 						</ul>
 					</li>
 					 -->
-					<li><a href="{{ route('requestservices.index') }}"><i class="fa fa-suitcase"></i> <span>Request Services</span></a></li>
+					<li><a href="{{ route('requestservices.index') }}"><i class="fa fa-suitcase"></i> <span>Requested Service</span></a></li>
 					<li><a href="{{ route('policesignups.index') }}"><i class="fa fa-star"></i> <span>Officers</span></a></li>
 					<li><a href="{{ route('contacts.index') }}"><i class="fa fa-envelope"></i> <span>Contacts</span></a></li>
 					<!-- <li><a href="/dashboard"><i class="fa fa-bar-chart-o"></i> <span>Reports</span></a></li>

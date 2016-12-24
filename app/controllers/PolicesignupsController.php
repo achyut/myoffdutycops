@@ -51,10 +51,12 @@ class PolicesignupsController extends BaseController {
 			$data = $this->policesignup->create($input);
 			$input["created_at"] = $data->created_at;
 
+			/*
 			Mail::send('emails.policesignup', $input, function($message) {
 			    $message->to('achyut@mailinator.com', 'Police Signed up')->subject('Police Signed up by '.Input::get('fname')." ".Input::get('lname'));
 			});
-
+			
+			*/
 			return Redirect::route('policesignup')->with('successmessage',Lang::get('messages.policesignupsuccess'));
 		}
 
