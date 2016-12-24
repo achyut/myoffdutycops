@@ -6,12 +6,12 @@
                     <div class="col-sm-6">
                         <h4>Contact</h4>
                     </div>
-                    <div class="col-sm-6 hidden-xs text-right">
+                    <!-- <div class="col-sm-6 hidden-xs text-right">
                         <ol class="breadcrumb">
                             <li><a href="index.html">Home</a></li>
                             <li>Contact</li>
                         </ol>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div><!--breadcrumbs-->

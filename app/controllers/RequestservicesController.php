@@ -56,11 +56,11 @@ class RequestservicesController extends BaseController {
 			$data = $this->requestservice->create($input);
 			$input["created_at"] = $data->created_at;
 
-			/*
+			
 			Mail::send('emails.requestservice', $input, function($message) {
-			    $message->to('achyut@mailinator.com', 'Request service')->subject('Requested service by '.Input::get('fullname'));
+			    $message->to('achyut.pdl@gmail.com', 'Request service')->subject('Requested service by '.Input::get('fullname'));
 			});
-			*/
+			
 
 			return Redirect::route('requestservice')->with('successmessage',Lang::get('messages.requestservicesuccess'));
 		}

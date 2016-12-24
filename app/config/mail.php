@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'postmaster@sandboxf246ffc289e045d18389202485401022.mailgun.org',
+	'username' => 'postmaster@ec2-54-70-157-24.us-west-2.compute.amazonaws.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => '37c5ee17ce1207c78f11521cb8abee0d',
+	'password' => '772bdb3fbc28c5c847f27143816783d9',
 
 	/*
 	|--------------------------------------------------------------------------

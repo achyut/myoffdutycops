@@ -5,12 +5,12 @@
                     <div class="col-sm-6">
                         <h4>News</h4>
                     </div>
-                    <div class="col-sm-6 hidden-xs text-right">
+                    <!-- <div class="col-sm-6 hidden-xs text-right">
                         <ol class="breadcrumb">
                             <li><a href="index.html">Home</a></li>
                             <li>News</li>
                         </ol>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

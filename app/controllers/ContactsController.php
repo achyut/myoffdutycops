@@ -52,7 +52,7 @@ class ContactsController extends BaseController {
 			$input["created_at"] = $data->created_at;
 
 			Mail::send('emails.contact', $input, function($message) {
-			    $message->to('achyut@mailinator.com', 'Contact requested')->subject('Contacted by '.Input::get('fname')." ".Input::get('lname'));
+			    $message->to('achyut.pdl@gmail.com', 'Contact requested')->subject('Contacted by '.Input::get('fname')." ".Input::get('lname'));
 			});
 
 			return Redirect::route('contact')->with('successmessage',Lang::get('messages.contactsuccess'));;
